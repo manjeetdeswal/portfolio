@@ -2,7 +2,7 @@
 I have build a responsive website that will display images. links and description.
 This is my first portfolio project.
 
-Live site Link - https://manjeetdeswal.github.io/portfolio/
+Live website Link - https://manjeetdeswal.github.io/portfolio/
 
 # Files Included
 
