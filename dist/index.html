@@ -1,83 +1,350 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-    crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manjeet Deswal | Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #171717 100%);
+            --card-bg: rgba(30, 41, 59, 0.6);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.4);
+            --play-store: #3ddc84;
+        }
 
-  <link rel="stylesheet" href="css/main.css">
-  <title>Welcome To My Portfolio</title>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .bio {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+            font-size: 1.05rem;
+        }
+        
+        .experience-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(61, 220, 132, 0.1);
+            color: var(--play-store);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(61, 220, 132, 0.3);
+            margin-bottom: 20px;
+        }
+
+        /* Social Links */
+        .links-grid {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+        }
+
+        .link-btn:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateY(-3px);
+        }
+        
+        .play-btn:hover {
+            background-color: #2e8b57;
+            border-color: #2e8b57;
+            box-shadow: 0 0 20px rgba(61, 220, 132, 0.4);
+        }
+
+        /* Projects Section */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        /* Clickable Project Card */
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            text-decoration: none;
+            backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 15px var(--accent-glow);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .card-header i {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-card:hover .card-header i {
+            color: var(--accent);
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(96, 165, 250, 0.15);
+            color: #60a5fa;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 100px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding-bottom: 20px;
+            border-top: 1px solid var(--card-border);
+            padding-top: 30px;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
+<body>
 
-<body id="bg-img">
-  <header>
-    <div class="menu-btn">
-      <div class="btn-line"></div>
-      <div class="btn-line"></div>
-      <div class="btn-line"></div>
+    <div class="container">
+        <header>
+            <h1>Manjeet Deswal</h1>
+            <div class="subtitle">Jeet Studio | Cross-Platform Developer</div>
+            <p class="bio">
+                Crafting elegant cross-platform applications and robust backend solutions. Experienced in full-cycle development—from initial architecture to successful deployment and continuous iteration.
+            </p>
+            <div class="experience-badge">
+                <i class="fab fa-google-play"></i> Proven Google Play Store Publishing Experience
+            </div>
+        </header>
+
+        <div class="links-grid">
+            <a href="https://play.google.com/store/apps/developer?id=Jeet+Studio" target="_blank" class="link-btn play-btn">
+                <i class="fab fa-google-play"></i> Play Store
+            </a>
+            <a href="https://github.com/manjeetdeswal" target="_blank" class="link-btn">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://linkedin.com/" target="_blank" class="link-btn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://stackoverflow.com/" target="_blank" class="link-btn">
+                <i class="fab fa-stack-overflow"></i> Stack Overflow
+            </a>
+            <a href="https://upwork.com/" target="_blank" class="link-btn">
+                <i class="fas fa-briefcase"></i> Upwork
+            </a>
+        </div>
+
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            
+            <a href="https://github.com/manjeetdeswal/Use-As-Server" target="_blank" class="project-card">
+                <div class="card-header">
+                    <div class="project-title">Use As Server</div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <div class="project-desc">
+                    The backend Python server architecture that enables turning a mobile device into fully functional PC peripherals over a local network.
+                </div>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Networking</span>
+                    <span class="tag">Backend</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/manjeetdeswal/Local-Stream-Upnp---Http-Server-" target="_blank" class="project-card">
+                <div class="card-header">
+                    <div class="project-title">LocalStream</div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <div class="project-desc">
+                    A comprehensive cross-platform local media server enabling seamless UPnP and HTTP streaming capabilities across devices.
+                </div>
+                <div class="tags">
+                    <span class="tag">C#</span>
+                    <span class="tag">Avalonia</span>
+                    <span class="tag">Desktop</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/manjeetdeswal/flutter-ecommerce-with-admin-panel" target="_blank" class="project-card">
+                <div class="card-header">
+                    <div class="project-title">E-Commerce Platform</div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <div class="project-desc">
+                    A full-scale e-commerce application built with Flutter, featuring a dedicated administrative panel for seamless inventory management.
+                </div>
+                <div class="tags">
+                    <span class="tag">Flutter</span>
+                    <span class="tag">Full-Stack</span>
+                    <span class="tag">UI/UX</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/manjeetdeswal/Habity-Habit-Tracker" target="_blank" class="project-card">
+                <div class="card-header">
+                    <div class="project-title">Habity</div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <div class="project-desc">
+                    A modern, intuitive habit-tracking application focusing on clean state management and a beautiful user interface.
+                </div>
+                <div class="tags">
+                    <span class="tag">Flutter</span>
+                    <span class="tag">Mobile</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/manjeetdeswal/resume_builder" target="_blank" class="project-card">
+                <div class="card-header">
+                    <div class="project-title">Resume Builder</div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <div class="project-desc">
+                    A dynamic tool designed to help professionals easily construct, format, and export beautifully designed resumes.
+                </div>
+                <div class="tags">
+                    <span class="tag">Utility</span>
+                    <span class="tag">App</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/manjeetdeswal/JeetPad" target="_blank" class="project-card">
+                <div class="card-header">
+                    <div class="project-title">JeetPad</div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <div class="project-desc">
+                   Turn any game controller into a fully customizable mouse and keyboard.
+                </div>
+                <div class="tags">
+                    <span class="tag">Utility</span>
+                    <span class="tag">Productivity</span>
+                </div>
+            </a>
+
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Jeet Studio. Designed and built by Manjeet.</p>
+        </footer>
     </div>
 
-    <nav class="menu">
-      <div class="menu-branding">
-        <div class="portrait"></div>
-      </div>
-      <ul class="menu-nav">
-        <li class="nav-item current">
-          <a href="index.html" class="nav-link">
-            Home
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="about.html" class="nav-link">
-            About Me
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="work.html" class="nav-link">
-            My Work
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="contact.html" class="nav-link">
-            How To Reach Me
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="home">
-    <h1 class="lg-heading">
-      Manjeet
-      <span class="text-secondary">Deswal</span>
-    </h1>
-    <h2 class="sm-heading">
-     Game Developer, Android Developer, Web Developer, Freelancer
-    </h2>
-    <div class="icons">
-    <a href="https://stackoverflow.com/users/14151698/manjeet-deswal">
-        <img  src="img/stack-overflow-brands.svg" alt="Stack Overflow" size="16" height="25" width="25">
-      </a>
-      <a href="https://www.upwork.com/freelancers/~01748e9bd51d1d5406">
-        <img  src="img/upwork.svg" alt="upwork" size="16" height="25" width="25">
-      </a>
-   <a href="https://github.com/manjeetdeswal?tab=repositories">
-    <img  src="img/github.svg" alt="github" size="16" height="25" width="28">
-      </a>
-      
-      <a href="https://www.linkedin.com/in/manjeet-deswal-93b78920b/">
-       <img  src="img/linkedin.svg" alt="linkedin" size="16" height="28" width="28">
-      </a>
-  
-    </div>
-  </main>
-
-  <script src="js/main.js"></script>
 </body>
-
 </html>
