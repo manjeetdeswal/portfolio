@@ -16,6 +16,8 @@
             --accent: #3b82f6;
             --accent-glow: rgba(59, 130, 246, 0.4);
             --play-store: #3ddc84;
+            --patreon: #ff424d;
+            --sponsor: #ea4ca3;
         }
 
         * {
@@ -41,7 +43,7 @@
         /* Hero Section */
         header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             animation: fadeInDown 0.8s ease-out;
         }
 
@@ -80,7 +82,55 @@
             font-size: 0.9rem;
             font-weight: 600;
             border: 1px solid rgba(61, 220, 132, 0.3);
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Support Buttons */
+        .support-grid {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .support-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .patreon-btn {
+            background-color: rgba(255, 66, 77, 0.1);
+            color: var(--patreon);
+            border: 1px solid rgba(255, 66, 77, 0.3);
+        }
+
+        .patreon-btn:hover {
+            background-color: var(--patreon);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255, 66, 77, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .sponsor-btn {
+            background-color: rgba(234, 76, 163, 0.1);
+            color: var(--sponsor);
+            border: 1px solid rgba(234, 76, 163, 0.3);
+        }
+
+        .sponsor-btn:hover {
+            background-color: var(--sponsor);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(234, 76, 163, 0.4);
+            transform: translateY(-3px);
         }
 
         /* Social Links */
@@ -229,6 +279,16 @@
             <div class="experience-badge">
                 <i class="fab fa-google-play"></i> Proven Google Play Store Publishing Experience
             </div>
+
+        
+            <div class="support-grid">
+                <a href="https://www.patreon.com/cw/UnrealComponent" target="_blank" class="support-btn patreon-btn">
+                    <i class="fab fa-patreon"></i> Support on Patreon
+                </a>
+                <a href="https://github.com/sponsors/manjeetdeswal" target="_blank" class="support-btn sponsor-btn">
+                    <i class="fas fa-heart"></i> Sponsor on GitHub
+                </a>
+            </div>
         </header>
 
         <div class="links-grid">
@@ -308,6 +368,22 @@
                 <div class="tags">
                     <span class="tag">Flutter</span>
                     <span class="tag">Mobile</span>
+                </div>
+            </a>
+
+            <!-- New Call History Editor App Added Here -->
+            <a href="https://github.com/manjeetdeswal/Call-Histoy-Editor" target="_blank" class="project-card">
+                <div class="card-header">
+                    <div class="project-title">Call History Editor</div>
+                    <i class="fas fa-external-link-alt"></i>
+                </div>
+                <div class="project-desc">
+                    A utility application designed to help users seamlessly access, manage, and edit their device's call logs and history records.
+                </div>
+                <div class="tags">
+                    <span class="tag">Android</span>
+                    <span class="tag">Kotlin</span>
+                    <span class="tag">Utility</span>
                 </div>
             </a>
 
